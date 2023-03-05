@@ -14,6 +14,8 @@ def server_program():
     server_socket.listen(2)
     conn, address = server_socket.accept()  # accept new connection
     print("Connection from: " + str(address))
+    conn.send("Hello, I'm echo server.".encode())
+
     while True:
         # receive data stream. it won't accept data packet greater than 1024 bytes
         data = conn.recv(1024).decode()
@@ -21,7 +23,7 @@ def server_program():
             # if data is not received break
             break
         print("from connected user: " + str(data))
-        data = input(' -> ')
+        data = f'{str(data)}'
         conn.send(data.encode())  # send data to the client
 
     conn.close()  # close the connection
