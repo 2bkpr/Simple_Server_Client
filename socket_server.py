@@ -1,4 +1,5 @@
 import socket
+import time
 
 
 def server_program():
@@ -22,8 +23,8 @@ def server_program():
         if not data:
             # if data is not received break
             break
-        print("from connected user: " + str(data))
-        data = f'{str(data)}'
+        print("from connected user: " + data)
+        time.sleep(5)
         conn.send(data.encode())  # send data to the client
 
     conn.close()  # close the connection
