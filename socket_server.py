@@ -24,7 +24,9 @@ def server_program():
             # if data is not received break
             break
         print("from connected user: " + data)
-        time.sleep(5)
+        time.sleep(15)
+        print(f"Took 15 seconds to process")
+        print(f"Sending {data}")
         conn.send(data.encode())  # send data to the client
 
     conn.close()  # close the connection
@@ -32,4 +34,5 @@ def server_program():
 
 
 if __name__ == '__main__':
+    print("The first socket server started")
     server_program()

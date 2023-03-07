@@ -1,5 +1,5 @@
 import socket
-
+import time
 
 def server_program():
     hostname = socket.gethostname()
@@ -20,10 +20,14 @@ def server_program():
         if not data:
             break
         print("from connected user: " + data)
+        time.sleep(3)
+        print(f"Took 3 seconds to process")
+        print(f"Sending {data}")
         conn.send(data.encode())
 
     conn.close()
 
 
 if __name__ == '__main__':
+    print("The second socket server started")
     server_program()
