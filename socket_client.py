@@ -1,6 +1,18 @@
 import socket
 import time
+import asyncio
 
+
+# async def send(socket, message):
+#     start_time = time.time()
+#     socket.send(message.encode())
+#     await asyncio.sleep(0.1)
+#     data = socket.recv(1024).decode()
+#     end_time = time.time()
+#     delay = end_time - start_time
+#     print(f"\n delay was {delay}")
+#     return data
+#
 
 def request(socket, message):
     start_time = time.time()
